@@ -8,9 +8,7 @@ let url='https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/curren
 
 ( async function (){
     pallcur= await fetch(url);
-    console.log(pallcur);
     allcur= await pallcur.json();
-    console.log(allcur);
     for(let key in allcur)
     {
         if(allcur[key]=="")
@@ -34,11 +32,8 @@ let url='https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/curren
         let newurl=`https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${fromcur}.json`;
         (async function(){
             let p1= await fetch(newurl);
-            console.log(p1);
-            let raw=await p1.json();
-            console.log(raw);
-            val=raw[fromcur][tocur];
-            console.log(val);
+            let raw=await p1.json();            
+            val=raw[fromcur][tocur];            
             let amount=am.value*val;
             let newdiv=document.createElement('div');
             newdiv.innerText=amount;
