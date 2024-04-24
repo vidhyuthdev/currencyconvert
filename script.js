@@ -4,6 +4,7 @@ const am=document.querySelector('.amt');
 let pallcur,allcur,val;
 const bod=document.querySelector('body');
 const but=document.querySelector('#convert');
+const displaytext=document.querySelector('.converted');
 let url='https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies.json';
 
 ( async function (){
@@ -33,14 +34,17 @@ let url='https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/curren
         (async function(){
             let p1= await fetch(newurl);
             let raw=await p1.json();            
-            val=raw[fromcur][tocur];            
-            let amount=am.value*val;
-            let newdiv=document.createElement('div');
-            newdiv.innerText=amount;
-            bod.append(newdiv);
-        })();
-        
-
+            val=raw[fromcur][tocur]; 
+            let tobechecked=am.value;
+            if(tobechecked!==""&&!isNaN(tobechecked))
+            {
+                tobechecked=parseFloat(tobechecked);
+                let amount=(tobechecked*val).toFixed(2);                      
+                displaytext.innerText=` ${tobechecked} ${fromcur.toUpperCase()} is equal to ${amount} ${tocur.toUpperCase()}`;
+            }           
+            else
+            alert('Enter a valid number');                      
+        })();   
     })
 })();
 

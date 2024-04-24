@@ -39,9 +39,16 @@
 }
 .amt{
     background-color: transparent;
-    width:70%;
-    border:2px solid blue;
+    width:80%;
+    border: 1px solid grey;
     border-radius:5px;
+    box-sizing: border-box;    
+}
+select{
+    background-color: transparent;
+    width:80%;
+    border-radius:5px;
+    box-sizing: border-box;  
     
 }
 .button{
@@ -58,8 +65,19 @@
 #convert:hover{
     cursor: pointer;
 }
+.converted{
+    width:100vw;
+    display: flex;
+    margin-top:40px;
+    justify-content: center;
+    align-items: center;
+    
+}
 @media (max-width:500px) {
     .header{
         font-size: 1.2rem;
     }    
+    select{
+        font-size:0.75rem;
+    }
 }
